@@ -1,0 +1,23 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "random": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "regex": "cpp",
+        "utility": "cpp",
+        "valarray": "cpp"
+    },
+    "python.pythonPath": "C:\\Users\\ibrah\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe"
+}
