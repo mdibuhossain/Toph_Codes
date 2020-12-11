@@ -31,15 +31,9 @@
 using namespace std;
 using ll = long long int;
 
-int GCD(int n1, int n2)
-{
-	if(n2)
-		return GCD(n2, n1%n2);
-	return n1;
-}
-
 ll funFactorial(ll n) {if (n == 0) return 1;return n * funFactorial(n - 1);}
 
+vector<ll>primes;
 bool prime[100000000];
 ll isPrime(ll n)
 {
@@ -54,6 +48,9 @@ void seive(ll n)
 			for(ll j = i * i; j <= n; j += i)
 				prime[j] = false;
 		}
+	primes.push_back(2);
+	for(ll i = 3; i <= n; i+=2)
+		if(isPrime(i)) primes.push_back(i);
 }
 
 int main()
@@ -66,7 +63,20 @@ int main()
 //---------------------------code_start_from_here-------------------------
 
 
-	
+	memset(prime, true, sizeof(prime));
+	seive(10000000);
+	int t;
+	cin >> t;
+	while(t--)
+	{
+		ll n, cnt = 0;
+		cin >> n;
+		vector<ll>::iterator upper1;
+		upper1 = upper_bound(primes.begin(), primes.end(), n);
+		if(isPrime(n))
+			cout << (upper1 - primes.begin()) - 1 << endl;
+		else cout << (upper1 - primes.begin()) << endl;
+	}
 
 
 //---------------------------code finished--------------------------------

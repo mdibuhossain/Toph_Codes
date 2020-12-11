@@ -31,13 +31,6 @@
 using namespace std;
 using ll = long long int;
 
-int GCD(int n1, int n2)
-{
-	if(n2)
-		return GCD(n2, n1%n2);
-	return n1;
-}
-
 ll funFactorial(ll n) {if (n == 0) return 1;return n * funFactorial(n - 1);}
 
 bool prime[100000000];
@@ -66,7 +59,29 @@ int main()
 //---------------------------code_start_from_here-------------------------
 
 
-	
+	memset(prime, true, sizeof(prime));
+	seive(100000000);
+	ll n;
+	cin >> n;
+	ll ar[n+10];
+	for(ll i = 1; i <= n; ++i)
+		cin >> ar[i];
+	ll q;
+	cin >> q;
+	while(q--)
+	{
+		ll x, y, l, cnt = 0;
+		cin >> l >> x >> y;
+		if(l == 1)
+		{
+			for(ll i = x; i <= y; ++i)
+				if(isPrime(ar[i])) cnt++;
+			cout << cnt << endl;
+		}
+		else
+			ar[x] = y;
+	}
+
 
 
 //---------------------------code finished--------------------------------

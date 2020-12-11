@@ -31,13 +31,6 @@
 using namespace std;
 using ll = long long int;
 
-int GCD(int n1, int n2)
-{
-	if(n2)
-		return GCD(n2, n1%n2);
-	return n1;
-}
-
 ll funFactorial(ll n) {if (n == 0) return 1;return n * funFactorial(n - 1);}
 
 bool prime[100000000];
@@ -56,6 +49,7 @@ void seive(ll n)
 		}
 }
 
+
 int main()
 {
 	#ifndef ONLINE_JUDGE
@@ -66,7 +60,23 @@ int main()
 //---------------------------code_start_from_here-------------------------
 
 
-	
+	memset(prime, true, sizeof(prime));
+	seive(10001);
+	ll t;
+	cin >> t;
+	while(t--)
+	{
+		ll l, r, container = -1;
+		cin >> l >> r;
+		for(ll i = r; i >= l; --i)
+			if(isPrime(i))
+			{
+				container = i;
+				break;
+			}
+		if(container == -1) cout << "-1" << endl;
+		else cout << container << endl;
+	}
 
 
 //---------------------------code finished--------------------------------
